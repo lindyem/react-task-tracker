@@ -10,14 +10,18 @@ function App() {
     id: 1,
     day: 'Feb 5th at 2:30pm',
     reminder:  false,
-    }])
+    }
+  ])
 
-  const name = 'Lindy';
+  //delete task
+  const deleteTask = (id) => {
+    setTasks(tasks.filter((task)=> task.id !== id))
+  }
+
   return (
     <div className="container">
       <Header />
-
-      <Tasks tasks={tasks}/>
+      <Tasks tasks={tasks} onDelete={deleteTask}/>
     </div>
   );
 }
